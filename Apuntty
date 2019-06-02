@@ -9,7 +9,7 @@ contract Apuntty {
     
     
     
-    function descargarLlaves(uint passwdNum) puedeDescargar returns (string contra ){
+    function descargarLlaves(uint passwdNum) public puedeDescargar returns (string contra ){
         DineroCliente[msg.sender] -= precioApuntes; 
         contra = passwd[passwdNum];
     }
@@ -19,20 +19,20 @@ contract Apuntty {
         monedaTotal += msg.value; 
         
     }
-    function nuevoCliente(address clienteNuevo) puedeCobrar {
+    function nuevoCliente(address clienteNuevo) public puedeCobrar {
         clientes.length++; 
         for(uint i = 0; i< clientes.length; i++){
         }
         clientes[i] = clienteNuevo; 
     }
-    function nuevaContra(string nuevaPassw) puedeCobrar{
+    function nuevaContra(string nuevaPassw) public puedeCobrar{
         passwd.length++; 
         for(uint i = 0; i < passwd.length; i++){
         }
         passwd[i] = nuevaPassw; 
  
     }
-    function cobrar() puedeCobrar{
+    function cobrar() public puedeCobrar{
             msg.sender.transfer(monedaTotal);
             monedaTotal = 0; 
         
